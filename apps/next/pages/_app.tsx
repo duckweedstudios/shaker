@@ -6,6 +6,8 @@ import Head from 'next/head'
 import React from 'react'
 import type { SolitoAppProps } from 'solito'
 
+import '../global.css'
+
 function MyApp({ Component, pageProps }: SolitoAppProps) {
   return (
     <>
