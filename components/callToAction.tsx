@@ -21,33 +21,29 @@ export default function CallToAction() {
   }, []);
   return (
     // <View className="flex-1 items-start justify-start mt-5 ml-0">
-    <View className="flex-col justify-start items-start gap-1.5 inline-flex">
-      <Text className="text-center text-white text-opacity-80 text-xs font-normal leading-3">Today's featured recipe</Text>
+    <View className="left-[24px] top-[64px] absolute flex-col justify-start items-start inline-flex">
+      <Text className="mb-1.5 text-center text-white opacity-80 text-xs font-normal leading-3">Today's featured recipe</Text>
       {/* <Text className="text-center text-white text-opacity-80 text-xs font-normal leading-3">Today's featured recipe</Text> */}
-      <Text className="text-white text-5xl font-normal leading-[48px]">{data.name}</Text>
+      <Text className="mb-1.5 text-white text-5xl font-normal leading-[48px]">{data.name}</Text>
       {/* <Text className="text-4xl font-papyrus">{data.name}</Text> */}
-      <View className="justify-end items-center gap-1.5 flex-row">
+      <View className="mb-1.5 justify-end items-center flex-row">
         {/* <View className="flex-row">{ */}
         {
         data.tags.slice(0, TAGS_TO_SHOW).map((tag) => {
           return (
-            <View key={tag} className="px-1.5 bg-black bg-opacity-20 rounded justify-center items-center gap-2.5 flex">
-              <View className="text-center text-white text-opacity-90 text-[10px] font-semibold leading-none">
-                <Text className="text-white text-opacity-90 text-[10px] font-semibold leading-none">{tag}</Text>
-              </View>
+            <View key={tag} className="mb-1.5 mr-1.5 px-1.5 bg-black bg-opacity-20 rounded justify-center items-center flex">
+              <Text className="m-1 text-white text-opacity-90 text-[12px] font-semibold">{tag}</Text>
               {/* <Text className="flex mr-3 p-3 text-white font-bold bg-slate-950 rounded-lg">{tag}</Text> */}
             </View>
             
           );
         })
       }</View>
-      <View className="w-44 h-3 justify-start items-center gap-2.5 inline-flex">
+      <View className="justify-start items-start flex-row">
       {/* <View className="flex-row"> */}
-        <Text className="text-center text-white text-xs font-light leading-3">{data.difficulty}</Text>
+        <Text className="mb-2.5 mr-2.5 text-center text-white text-sm font-light">{data.difficulty}</Text>
         {/* <Text className="mr-3">{data.difficulty}</Text> */}
-        <View className="w-[34px] h-3 justify-start items-center gap-1 inline-flex">
-          
-        </View>
+        <Text className="text-center text-white text-sm font-light">♥ {data.likes}</Text>
         {/* <Text>{data.likes}</Text> */}
       </View>
     </View>
