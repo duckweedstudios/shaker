@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Inter"', 'sans-serif'],
+        'sans': ['sans-serif'],
+        'papyrus': ['Papyrus'],
+        'baskerville': ['Baskerville'],
       }
     },
   },
