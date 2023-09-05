@@ -12,6 +12,7 @@ export default function CallToAction() {
     difficulty: "Loading...",
     tags: ["Loading..."],
     likes: 0,
+    glass: "Loading...",
   });
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +22,7 @@ export default function CallToAction() {
   }, []);
   return (
     // <View className="flex-1 items-start justify-start mt-5 ml-0">
-    <View className="left-[24px] top-[64px] absolute flex-col justify-start items-start inline-flex">
+    <View className="flex pl-[24px] pt-[64px] flex-col justify-start items-start">
       <Text className="mb-1.5 text-center text-white opacity-80 text-xs font-normal leading-3">Today's featured recipe</Text>
       {/* <Text className="text-center text-white text-opacity-80 text-xs font-normal leading-3">Today's featured recipe</Text> */}
       <Text className="mb-1.5 text-white text-5xl font-normal leading-[48px]">{data.name}</Text>
@@ -39,7 +40,7 @@ export default function CallToAction() {
           );
         })
       }</View>
-      <View className="justify-start items-start flex-row">
+      <View className="mb-24 justify-start items-start flex-row">
       {/* <View className="flex-row"> */}
         <Text className="mb-2.5 mr-2.5 text-center text-white text-sm font-light">{data.difficulty}</Text>
         {/* <Text className="mr-3">{data.difficulty}</Text> */}
