@@ -10,6 +10,9 @@ export default function App() {
         <Link href={`/home`}>
           Go to home
         </Link>
+        <Link href={`/search`}>
+          Go to search
+        </Link>
       </View>
       <StatusBar style="auto" />
     </View>
