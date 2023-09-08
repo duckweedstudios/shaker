@@ -11,16 +11,20 @@ export default function homeCatalog() {
       setData(await getCocktails());
     };
     fetchData();
+  }, []);
 
+  useEffect(() => {
     // Transform data into rows of 2 by reducing to a 2d array
-    setCocktailRows(data.reduce(
+    setCocktailRows(
+      data.reduce(
         (rows, key, index) =>
           (index % 2 === 0
             ? rows.push([key])
             : rows[rows.length - 1].push(key)) && rows,
         []
-    ));
-  }, []);
+      )
+    );
+  }, [data]);
 
   return (
     <View className="flex">
@@ -28,31 +32,29 @@ export default function homeCatalog() {
         <Text className="text-4xl text-white leading-relaxed">
           Popular Recipes
         </Text>
-        <Text className="text-xs text-white/80 leading-3">
-          View All
-        </Text>
+        <Text className="text-xs text-white/80 leading-3">View All</Text>
       </View>
       <View className="px-6">
-        {
-          cocktailRows.map((row, index) => {
-            return (
-              <View key={index} className="flex-row items-center justify-between">
-                {row.map((cocktail: Cocktail) => {
-                  return (
-                    <View
-                      key={cocktail.id}
-                      className="flex w-[45%] items-center justify-center bg-black/20 rounded mb-3"
-                    >
-                      <Image source={placeholderImage} ></Image>
-                      <Text className="text-white text-lg">{cocktail.name}</Text>
-                      <Text className="text-white"><Text className="text-red-500">♥</Text> {cocktail.likes}</Text>
-                    </View>
-                  );
-                })}
-              </View>
-            );
-          })
-        }
+        {cocktailRows.map((row, index) => {
+          return (
+            <View key={index} className="flex-row items-center justify-between">
+              {row.map((cocktail: Cocktail) => {
+                return (
+                  <View
+                    key={cocktail.id}
+                    className="flex w-[45%] items-center justify-center bg-black/20 rounded mb-3"
+                  >
+                    <Image source={placeholderImage} width={45}></Image>
+                    <Text className="text-white text-lg">{cocktail.name}</Text>
+                    <Text className="text-white">
+                      <Text className="text-red-500">♥</Text> {cocktail.likes}
+                    </Text>
+                  </View>
+                );
+              })}
+            </View>
+          );
+        })}
       </View>
     </View>
   );
